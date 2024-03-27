@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 /*const cookieParser = require("cookie-parser");*/
 const productRouter = require("./routes/productData");
-/*const authRoutes = require("./routes/auth");
-const taskRoutes = require("./routes/task");
+const authRouter = require("./routes/auth");
+/*const taskRoutes = require("./routes/task");
 const analyticsRoutes = require("./routes/analytics");*/
 //create a server
 const app = express();
@@ -23,8 +23,8 @@ mongoose
 
 //routes
 app.use("/api/v1/product" ,productRouter);
-/*app.use("/api/v1/auth" ,authRoutes);
-app.use("/api/v1/task" ,taskRoutes);
+app.use("/api/v1/auth" ,authRouter);
+/*app.use("/api/v1/task" ,taskRoutes);
 app.use("/api/v1/analytics" ,analyticsRoutes);*/
 
 app.get("/health", (req, res) => {
