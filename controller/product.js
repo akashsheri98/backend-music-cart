@@ -119,6 +119,20 @@ const filterProducts = async (req, res) => {
   }
 };
 
+const getSingleProduct = async (req, res) => {
+  try {
+    // Make a GET request to fetch the single product from the external API
+
+    const product = await Product.findOne({ productId: req.params.productId });
+    // Forward the response from the external server to the client
+    res.json(product);
+  } catch (error) {
+    // If an error occurs during the request, forward the error to the client
+    console.error('Error fetching single product:', error);
+    res.status(error.response.status).json(error.response.data);
+  }
+};
+
 module.exports = { filterProducts };
 
 
@@ -128,4 +142,5 @@ module.exports = {
   addProduct, 
   getAllProducts,
   filterProducts, 
+  getSingleProduct,
 };

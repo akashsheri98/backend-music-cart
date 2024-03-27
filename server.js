@@ -5,6 +5,7 @@ const cors = require("cors");
 /*const cookieParser = require("cookie-parser");*/
 const productRouter = require("./routes/productData");
 const authRouter = require("./routes/auth");
+const cartRouter = require("./routes/cartRoute");
 /*const taskRoutes = require("./routes/task");
 const analyticsRoutes = require("./routes/analytics");*/
 //create a server
@@ -24,6 +25,7 @@ mongoose
 //routes
 app.use("/api/v1/product" ,productRouter);
 app.use("/api/v1/auth" ,authRouter);
+app.use("/api/v1/cart" ,cartRouter);
 /*app.use("/api/v1/task" ,taskRoutes);
 app.use("/api/v1/analytics" ,analyticsRoutes);*/
 

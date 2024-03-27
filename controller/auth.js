@@ -50,6 +50,7 @@ const register = async (req, res, next) => {
       message: "User registered successfully",
       token: token,
       name: username,
+      userid: userResponse._id,
     });
 
     next();
@@ -96,6 +97,7 @@ const login = async (req, res, next) => {
         message: "Logged in Successfully",
         token,
         name: userDetails.username,
+        userid: userDetails._id,
       });
     } catch (error) {
       console.error(error);
