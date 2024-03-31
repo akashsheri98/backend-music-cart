@@ -74,8 +74,22 @@ const addItemToCart = async (req, res) => {
     }
   };
   
+  const clearCart = async (req, res) => {
+    try {
+      const userId = req.params.userId;
+  
+      // Delete all cart items for the specified userId
+      await CartItem.deleteMany({ userId });
+  
+      // Respond with success message
+      res.status(200).json({ success: true, message: 'Cart cleared successfully' });
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+  }
   
   
   
 
-module.exports = { addItemToCart , getCart ,updateQuantity };
+module.exports = { addItemToCart , getCart ,updateQuantity , clearCart};

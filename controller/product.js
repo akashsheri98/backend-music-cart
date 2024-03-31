@@ -124,8 +124,9 @@ const getSingleProduct = async (req, res ) => {
     // Make a GET request to fetch the single product from the external API
     //recive product id
     const productId= req.params.productId 
-    const product = await Product.findOne({ });
-    console.log("product",product);
+   
+    const product = await Product.findOne({ _id: productId });
+    
     // Forward the response from the external server to the client
     res.json({product});
   } catch (error) {
